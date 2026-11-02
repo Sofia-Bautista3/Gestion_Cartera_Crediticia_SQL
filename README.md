@@ -2,7 +2,8 @@
 En este repositorio encontraran dos proyectos integrales que abarcan desde el modelado relacional y lógica de negocio en bases de datos relacionales SQL, hasta la limpieza, transformación y generación de métricas analíticas en Python.
 
 ## Proyecto 1: Gestión de Cartera Crediticia - SQL
-- Contexto de Negocio
+- Contexto de Negocio:
+   
 Una empresa dedica a la conseción de prestamos requería una infraestructura de base de datos robusta para:
 1. Monitorear el estado global de su cartera crediticia en tiempo real.
 2. Detectar de manera automatizada a clientes en morosidad.
@@ -10,6 +11,7 @@ Una empresa dedica a la conseción de prestamos requería una infraestructura de
 4. Auditar cambios de estado y generar cierres contables/mensuales de forma automática.
 
 - Fuentes de Datos:
+
 El proyecto trabaja sobre el esquema relacional fincore_sa, estructurado en las siguientes tablas clave:
 1. clientes: Información demográfica e identificación del cliente.
 2. productos_credito: Tipos de financiamiento, tasas y plazos.
@@ -19,9 +21,8 @@ El proyecto trabaja sobre el esquema relacional fincore_sa, estructurado en las 
 6. resumen_mensual: Tabla agregada para métricas ejecutivas de cierre mensual.
     
 - Procesos de Análisis:
-El proyecto fue desarrollado en MySQL utilizando SQL avanzado.
-
-Etapas principales:
+  
+El proyecto fue desarrollado en MySQL utilizando SQL avanzado. Etapas principales:
 
 1. Análisis exploratorio de la base de datos y creación de función personalizada de clasificación de mora (aging).
 2. Construcción de vistas ejecutivas para el monitoreo de cartera y consolidación de clientes.
@@ -32,14 +33,20 @@ Etapas principales:
 7. Ejecución de consultas analíticas avanzadas (aging de cartera, top de exposición e historial).
    
 - Resultados e Insights:
+1. Concentración del Riesgo (Aging): La segmentación por aging permitió identificar qué porcentaje del saldo total se encuentra retenido en Mora Crítica (+90 días) frente a mora temprana.
+2. Top Exposición Crediticia: Un número reducido de clientes (Top 5) concentra una fracción desproporcionada del saldo pendiente global al compararse contra el promedio de la cartera.
+3. Eficiencia en Consultas: Sin indexación adecuada, las consultas analíticas multi-tabla ejecutaban recorridos completos de tabla (Full Table Scans); la creación de índices redujo el costo computacional a búsquedas directas por clave.   
 - Tecnologías utilizadas:
+  
 MySQL (SQL Avanzado)
 
 ## Proyecto 2: Análisis Comercial - Python
 - Contexto de Negocio:
+
 Una empresa del sector comercial requiere unificar y sanear su información operativa dispersa en múltiples archivos Excel sin estructura uniforme e inconsistencias en formatos, categorías y registros. La meta del proyecto consiste en procesar y reconstruir los datos, calcular KPIs comerciales, medir el cumplimiento de metas y automatizar la generación de reportes ejecutivos en Excel e imágenes analíticas de forma que se convierta en informacion accionable para la toma de decisiones.
 
 - Fuentes de Datos:
+
 El proyecto integra 6 archivos Excel:
 1. 01_ventas.xlsx
 2. 02_clientes.xlsx
@@ -49,9 +56,9 @@ El proyecto integra 6 archivos Excel:
 6. 06_metas.xlsx
 
 - Proceso de Análisis:
-El proyecto fue desarrollado en Python utilizando pandas y matplotlib.
 
-Etapas principales:
+El proyecto fue desarrollado en Python utilizando pandas y matplotlib. Etapas principales:
+
 1. Carga de múltiples fuentes de datos
 2. Diagnóstico de calidad de datos
 3. Limpieza y estandarización:
@@ -65,8 +72,12 @@ Etapas principales:
 
 - Resultados e Insights:
 
+1. Desempeño Comercial y Márgenes: Determinadas categorías (Tecnologia, Hogar y Moda) generan volumen de ventas alto pero margen ajustado, mientras que ciertos productos específicos del Top 10 aportan la mayor parte de la utilidad operativa.
+2. Efectividad del Canal de Venta: Se identificaron canales (Tienda y Distribuidor) con mayor tasa de penetración y ticket promedio más elevado.
+3. Brecha en Metas (Actual vs. Proyectado): La comparativa visual evidenció sucursales que sobrepasaron su meta de unidades/ventas versus aquellas con desfases recurrentes en el periodo de tiempo analizado. 
 
 - Tecnologías Utilizadas:
+
 1. Pandas
 2. Matplotlib
 3. Google Colab
