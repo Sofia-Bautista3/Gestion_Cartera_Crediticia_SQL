@@ -2,7 +2,7 @@
 
 # Contexto de Negocio:
    
-Una empresa dedica a la conseción de prestamos requería una infraestructura de base de datos robusta para:
+Una empresa dedicada a la concesión de préstamos requería una infraestructura de base de datos robusta para:
 1. Monitorear el estado global de su cartera crediticia en tiempo real.
 2. Detectar de manera automatizada a clientes en morosidad.
 3. Registrar transacciones de pago garantizando la integridad de los saldos.
@@ -28,17 +28,30 @@ El proyecto fue desarrollado en MySQL utilizando SQL avanzado. Etapas principale
 1. Análisis exploratorio de la base de datos y creación de función personalizada de clasificación de mora (aging).
 2. Construcción de vistas ejecutivas para el monitoreo de cartera y consolidación de clientes.
 3. Implementación de un trigger para la auditoría automática de cambios de estado y días de mora.
-4. Desarrollo de procedimientos almacenados con gestión transaccional (ACID) para el registro de pagos, generación de resumen mensual y refinancimiento de prestamos.
+4. Desarrollo de procedimientos almacenados con gestión transaccional (ACID) para el registro de pagos, generación de resumen mensual y refinanciamiento de prestamos.
 5. Ejecución de consultas analíticas avanzadas (aging de cartera, top de exposición e historial).
    
 #
 # Resultados e Insights:
-1. Concentración del Riesgo (Aging): La segmentación por aging permitió identificar qué porcentaje del saldo total se encuentra retenido en Mora Crítica (+90 días) frente a mora temprana.
-2. Top Exposición Crediticia: Un número reducido de clientes (Top 5) concentra una fracción desproporcionada del saldo pendiente global al compararse contra el promedio de la cartera.
 
+**1. Aging de Cartera:**
+
+De un total de  $712,200  en cartera viva (créditos activos y vencidos),  $696,500  se encuentran operando estrictamente Al Día (representando el  97.80%  del portafolio). Demostrando a nivel directivo que a pesar de tener un segmento de riesgo diversificado (incluyendo perfiles C y D), los mecanismos de otorgamiento y control implementados en la base de datos mantienen la gran mayoría de los recursos generando rendimientos de forma limpia.
+
+Además, la Mora Crítica (+90 días) se ha reducido y contenido de manera excepcional a solo 2.20%  ($15,700), lo que evidencia que el riesgo de pérdida severa está perfectamente acotado y no compromete la liquidez de la institución.
+
+<img width="465" height="224" alt="01_Resultado del aging de cartera" src="https://github.com/user-attachments/assets/a0d3e2a4-8a3e-492d-bc0b-c1a2c901b48e" />
+
+**2. Top Exposición Crediticia:**
+
+<img width="547" height="270" alt="02_Top 5 de exposicion crediticia" src="https://github.com/user-attachments/assets/38fee45b-8c9c-45b4-9038-74fef1fed290" />
+
+El top de exposición crediticia revela que el 78.63%  de la cartera activa se concentra en solo 5 clientes. Así mismo,  se evidencia una alta concentración en los dos principales clientes, ambos clasificados en Categoría de Riesgo A y B (Excelente / Bueno), operando estrictamente Al Día.
 
 #
-# Recomendacions:
+# Recomendaciones:
+- Priorizar gestión de cobranza sobre los préstamos en mora grave antes de que pasen a crítica. 
+- Se sugiere implementar un seguimiento de cupos de crédito y límites de exposición única para evitar elevar el riesgo de liquidez ante eventuales variaciones en la capacidad de pago de los grandes deudores.   
 
 #
 # Tecnologías utilizadas:
